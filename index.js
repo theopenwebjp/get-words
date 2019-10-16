@@ -7,6 +7,10 @@ const replaceAll = function(str, find, replacer){
 
 class GetWords{
 
+    /**
+     * @param {string} str
+     * @return {array}
+     */
     getWords(str){
 
         //Replacements
@@ -39,6 +43,10 @@ class GetWords{
         return words;
     }
 
+    /**
+     * @param {array}
+     * @return {object}
+     */
     getWordCounts(words){
         const counts = {};
         words.forEach((word)=>{
