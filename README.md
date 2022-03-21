@@ -7,7 +7,14 @@ Much more functional natural language parsing libraries already exist, so this l
 ## Usage
 
 See:
-./example/template.js
 
-Test:
-`npm run test`
+- Node.js: [./example/template.js](./example/template.js)
+- Browser: [./index.html](./index.html)
+
+Browser:
+
+`npx http-server ./`
+
+Test(Runs in Node.js):
+
+- `npm run test`

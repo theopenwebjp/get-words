@@ -1,8 +1,59 @@
-<html>
+<html lang="en">
     <head>
-        <title></title>
+        <meta charset="utf-8">
+        <title>Get Words Example</title>
+        <meta name="description" content="Get Words Example. Parse words from page.">
+        <!-- <script src="./index.js"></script> -->
+        <script type="module">
+            // const GetWords = window.GetWords
+            import GetWords from './index.js'
+
+            function output() {
+                const g = new GetWords();
+                const words = g.getWords(document.querySelector('#text-input').value);
+                const wordCounts = g.getWordCounts(words);
+                const formattedText = Object.entries(wordCounts).map(([key, value]) => `${key}: ${value}`).join('<br><br>')
+                document.querySelector('#output').innerHTML = formattedText
+            }
+            window.output = output
+
+            async function setDefaultTextInput() {
+                const txt = await(await fetch('./example/lorem-ipsum.txt')).text()
+                document.querySelector('#text-input').value = txt
+            }
+
+            function onLoad() {
+                setDefaultTextInput()
+            }
+
+            window.addEventListener('load', onLoad)
+            
+        </script>
+        <style>
+            * {
+                text-align: center;
+                max-width: 100%;
+            }
+        </style>
     </head>
     <body>
-        <h1></h1>
+        <h1>Get Words Example</h1>
+
+        <div>
+            <h2>Tools</h2>
+            <div>
+                <textarea id="text-input" rows="10" cols="50"></textarea>
+                <div style="margin: 10px 0;">
+                    <input type="button" value="Update Output" onclick="output()">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h2>Output</h2>
+            <div id="output">
+                <!-- OUTPUT -->
+            </div>
+        </div>
     </body>
 </html>

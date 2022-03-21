@@ -1,27 +1,35 @@
 const REPLACEMENTS = `.,:;\!*"`.split('');
 const ALLOWED = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const BASE_WORD_DELIMITER = ' ';
+/**
+ * @param {string} str
+ * @param {string} find
+ * @param {string} replacer
+ * @returns 
+ */
 const replaceAll = function(str, find, replacer){
     return str.split(find).join(replacer);
 };
 
-class GetWords{
+export default class GetWords {
 
     /**
      * @param {string} str
-     * @return {array}
      */
     getWords(str){
 
-        //Replacements
+        // Replacements
         REPLACEMENTS.forEach((char)=>{
             str = replaceAll(str, char, BASE_WORD_DELIMITER);
         });
 
-        //Split into words
+        // Split into words
         const rawWords = str.split(BASE_WORD_DELIMITER);
         
-        //Filter
+        // Filter
+        /**
+         * @type {string[]}
+         */
         let words = [];
         rawWords.forEach((word)=>{
             if(word === ''){return;}
@@ -35,7 +43,7 @@ class GetWords{
             words.push(word);
         });
 
-        //Lowercase
+        // Lowercase
         words = words.map((word)=>{
             return word.toLowerCase();
         });
@@ -44,10 +52,12 @@ class GetWords{
     }
 
     /**
-     * @param {array}
-     * @return {object}
+     * @param {string[]} words
      */
     getWordCounts(words){
+        /**
+         * @type {Record<string, number>}
+         */
         const counts = {};
         words.forEach((word)=>{
             counts[word] = !!counts[word] ? ++counts[word] : 1;
@@ -55,11 +65,4 @@ class GetWords{
 
         return counts;
     }
-}
-
-if(typeof window === 'object'){
-    window.GetWords = GetWords;
-}
-if(typeof module === 'object'){
-    module.exports = GetWords;
 }
