@@ -6,6 +6,8 @@ Much more functional natural language parsing libraries already exist, so this l
 
 ## Usage
 
+`npm install @theopenweb/get-words`
+
 See:
 
 - Node.js: [./example/template.js](./example/template.js)
