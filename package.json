@@ -1,7 +1,7 @@
 {
   "name": "@theopenweb/get-words",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library for getting words from text.\r Currently only handles alphabetical text, only allowing text lower and upper in a-Z range to be obtained.\r Much more functional natural language parsing libraries already exist, so this library will focus on simple solutions.",
   "main": "index.js",
   "directories": {

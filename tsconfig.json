@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "ES2015",
+        "allowJs": true,
+        "checkJs": true,
+        "noEmit": true,
+        "strict": true,
+        "strictNullChecks": true,
+        "lib": ["DOM", "ES2015"]
+    },
+    "include": [
+        "index.js"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
